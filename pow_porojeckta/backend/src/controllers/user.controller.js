@@ -8,10 +8,10 @@ exports.getUsers = catchAsync(async (req, res, next) => {
   const { role, sort = 'createdAt', page = 1, limit = 10, search } = req.query;
 
   const where = {};
-  if (role) where.role = role;
+  if (role) where.role = String(role).toUpperCase();
   if (search) where.OR = [
-    { username: { contains: search, mode: 'insensitive' } },
-    { email: { contains: search, mode: 'insensitive' } },
+    { username: { contains: search } },
+    { email: { contains: search } },
   ];
 
   const allowedSorts = ['createdAt', 'username', 'email'];

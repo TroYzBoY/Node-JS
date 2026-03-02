@@ -15,11 +15,31 @@ const getPrismaClient = () => {
 const createMockPrisma = () => {
   const users = new Map();
   const profiles = new Map();
+  const applyUserWhere = (list, where = {}) => {
+    let result = list;
+    if (where.role) result = result.filter((u) => u.role === where.role);
+    if (Array.isArray(where.OR) && where.OR.length > 0) {
+      result = result.filter((u) => {
+        return where.OR.some((cond) => {
+          if (cond.username?.contains != null) {
+            const needle = String(cond.username.contains).toLowerCase();
+            return String(u.username || "").toLowerCase().includes(needle);
+          }
+          if (cond.email?.contains != null) {
+            const needle = String(cond.email.contains).toLowerCase();
+            return String(u.email || "").toLowerCase().includes(needle);
+          }
+          return false;
+        });
+      });
+    }
+    return result;
+  };
+
   const self = {
     user: {
       findMany: async ({ where = {}, skip = 0, take = 10 } = {}) => {
-        let result = [...users.values()];
-        if (where.role) result = result.filter(u => u.role === where.role);
+        let result = applyUserWhere([...users.values()], where);
         return result.slice(skip, skip + take);
       },
       findUnique: async ({ where }) => {
@@ -47,8 +67,7 @@ const createMockPrisma = () => {
         return user;
       },
       count: async ({ where = {} } = {}) => {
-        let result = [...users.values()];
-        if (where.role) result = result.filter(u => u.role === where.role);
+        const result = applyUserWhere([...users.values()], where);
         return result.length;
       },
     },

@@ -170,19 +170,13 @@ function App() {
             type="text"
             placeholder="Search username/email"
             value={filters.search}
-            onChange={(e) => setFilters((p) => ({ ...p, search: e.target.value }))}
+            onChange={(e) => setFilters((p) => ({ ...p, search: e.target.value, page: 1 }))}
           />
-          <select value={filters.role} onChange={(e) => setFilters((p) => ({ ...p, role: e.target.value }))}>
+          <select value={filters.role} onChange={(e) => setFilters((p) => ({ ...p, role: e.target.value, page: 1 }))}>
             <option value="">All roles</option>
-            <option value="user">user</option>
-            <option value="admin">admin</option>
+            <option value="USER">USER</option>
+            <option value="ADMIN">ADMIN</option>
           </select>
-          <input
-            type="number"
-            min="1"
-            value={filters.page}
-            onChange={(e) => setFilters((p) => ({ ...p, page: Number(e.target.value || 1) }))}
-          />
           <button type="submit">Load</button>
         </form>
 
