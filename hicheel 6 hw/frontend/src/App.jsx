@@ -5,14 +5,14 @@ const API_BASE = "/api";
 
 function App() {
   const [registerForm, setRegisterForm] = useState({
-    name: "Ravjaa",
-    email: "ravjaa@school.mn",
-    password: "Test123!",
-    role: "STUDENT",
+    name: "",
+    email: "",
+    password: "",
+    role: "",
   });
   const [loginForm, setLoginForm] = useState({
-    email: "ravjaa@school.mn",
-    password: "Test123!",
+    email: "",
+    password: "",
   });
   const [status, setStatus] = useState("Ready");
   const [me, setMe] = useState(null);

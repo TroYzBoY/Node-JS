@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>XSS Test</title>
+</head>
+<body>
+  <h2>Enter your name:</h2>
+  <form>
+    <input type="text" id="username">
+    <button type="button" onclick="greetUser()">Submit</button>
+  </form>
+
+  <p id="greeting"></p>
+
+  <script>
+    function greetUser() {
+      var name = document.getElementById("username").value;
+      // Vulnerable: directly inserting user input into HTML
+      document.getElementById("greeting").innerHTML = "Hello, " + name + "!";
+    }
+  </script>
+</body>
+</html>
+
+<!-- <script>alert('XSS!')</script> -->
