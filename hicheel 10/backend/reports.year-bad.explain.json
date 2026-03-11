@@ -1,0 +1,18 @@
+﻿{
+  "explain": [
+    {
+      "id": 1,
+      "select_type": "SIMPLE",
+      "table": "students",
+      "partitions": null,
+      "type": "ALL",
+      "possible_keys": null,
+      "key": null,
+      "key_len": null,
+      "ref": null,
+      "rows": 99944,
+      "filtered": 100,
+      "Extra": "Using where"
+    }
+  ]
+}

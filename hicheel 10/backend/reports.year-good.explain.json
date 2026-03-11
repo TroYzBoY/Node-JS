@@ -1,0 +1,18 @@
+﻿{
+  "explain": [
+    {
+      "id": 1,
+      "select_type": "SIMPLE",
+      "table": "students",
+      "partitions": null,
+      "type": "range",
+      "possible_keys": "idx_students_created_at",
+      "key": "idx_students_created_at",
+      "key_len": "5",
+      "ref": null,
+      "rows": 31748,
+      "filtered": 100,
+      "Extra": "Using index condition"
+    }
+  ]
+}

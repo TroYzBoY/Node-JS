@@ -1,0 +1,26 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "db:seed": "node prisma/seed.js",
+    "start:gateway": "node api-gateway/index.js",
+    "start:book": "node book-service/index.js",
+    "start:user": "node user-service/index.js",
+    "start:borrow": "node borrow-service/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.15.0",
+    "cors": "^2.8.6",
+    "dotenv": "^17.3.1",
+    "express": "^4.19.2",
+    "helmet": "^8.1.0",
+    "prisma": "^6.15.0",
+    "redis": "^5.11.0"
+  }
+}
