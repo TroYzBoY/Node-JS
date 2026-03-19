@@ -1,0 +1,14 @@
+{
+  "name": "queue-system",
+  "version": "1.0.0",
+  "type": "module",
+  "private": true,
+  "dependencies": {
+    "amqplib": "^0.10.4",
+    "dotenv": "^16.4.7"
+  },
+  "scripts": {
+    "producer": "node producer.js",
+    "consumer": "node consumer.js"
+  }
+}

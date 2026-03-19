@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: student-api-sidecar-pod
+  labels:
+    app: student-api-sidecar
+spec:
+  containers:
+    - name: api
+      image: student-api:v1
+      imagePullPolicy: IfNotPresent
+      ports:
+        - containerPort: 3000
+    - name: logger
+      image: busybox:1.36
+      command: ["sh", "-c", "while true; do echo logger-sidecar-running; sleep 10; done"]
