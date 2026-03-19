@@ -1,0 +1,62 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.form {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.form input {
+  padding: 0.5rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  border: 1px solid #ddd;
+  padding: 0.5rem;
+  text-align: left;
+}
+
+button {
+  padding: 0.45rem 0.75rem;
+}
+
+.divider {
+  margin: 2rem 0;
+}
+
+.auth-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+.auth-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.auth-card h3 {
+  margin-top: 0;
+}
+
+.result-line {
+  margin: 0.5rem 0 0;
+  color: #333;
+  font-size: 0.95rem;
+}
+
+.not-found-row {
+  margin-top: 1rem;
+}
